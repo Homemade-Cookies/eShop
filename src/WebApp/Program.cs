@@ -9,6 +9,15 @@ builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 builder.AddApplicationServices();
 
+// Configure and register CI/CD pipeline services
+builder.Services.AddCI_CDServices();
+
+// Configure and register automated code quality checks
+builder.Services.AddCodeQualityChecks();
+
+// Configure and register dependency management and security scanning tools
+builder.Services.AddDependencyManagementAndSecurityScanning();
+
 var app = builder.Build();
 
 app.MapDefaultEndpoints();

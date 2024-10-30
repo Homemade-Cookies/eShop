@@ -45,6 +45,15 @@ public static class Extensions
         builder.Services.AddHttpClient<OrderingService>(o => o.BaseAddress = new("http://ordering-api"))
             .AddApiVersion(1.0)
             .AddAuthToken();
+
+        // Configure and register CI/CD pipeline services
+        builder.Services.AddCI_CDServices();
+
+        // Configure and register automated code quality checks
+        builder.Services.AddCodeQualityChecks();
+
+        // Configure and register dependency management and security scanning tools
+        builder.Services.AddDependencyManagementAndSecurityScanning();
     }
 
     public static void AddEventBusSubscriptions(this IEventBusBuilder eventBus)

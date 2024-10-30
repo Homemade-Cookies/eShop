@@ -31,6 +31,15 @@ public static partial class Extensions
             http.AddServiceDiscovery();
         });
 
+        // Configure and register CI/CD pipeline services
+        builder.Services.AddCI_CDServices();
+
+        // Configure and register automated code quality checks
+        builder.Services.AddCodeQualityChecks();
+
+        // Configure and register dependency management and security scanning tools
+        builder.Services.AddDependencyManagementAndSecurityScanning();
+
         return builder;
     }
 
