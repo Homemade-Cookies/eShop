@@ -23,7 +23,7 @@ public static class MauiProgram
 {
     public static MauiApp CreateMauiApp()
     {
-        return MauiApp
+        var builder = MauiApp
             .CreateBuilder()
             .UseMauiApp<App>()
             .ConfigureEffects(
@@ -51,8 +51,18 @@ public static class MauiProgram
 #endif
             .RegisterAppServices()
             .RegisterViewModels()
-            .RegisterViews()
-            .Build();
+            .RegisterViews();
+
+        // Configure and register CI/CD pipeline services
+        builder.Services.AddCI_CDServices();
+
+        // Configure and register automated code quality checks
+        builder.Services.AddCodeQualityChecks();
+
+        // Configure and register dependency management and security scanning tools
+        builder.Services.AddDependencyManagementAndSecurityScanning();
+
+        return builder.Build();
     }
 
     public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder mauiAppBuilder)
